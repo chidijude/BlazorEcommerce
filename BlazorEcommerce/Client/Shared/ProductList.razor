@@ -2,7 +2,7 @@
 @implements IDisposable
 @if (ProductService.Products == null || ProductService.Products.Count == 0)
 {
-    <spatext>Loading Products...</spatext>
+    <spatext>@ProductService.Message</spatext>
 }
 else
 {
