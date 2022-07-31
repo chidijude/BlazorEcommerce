@@ -1,0 +1,30 @@
+﻿<div class="dropdown">
+    <button @onclick="ToggleUserMenu" @onfocusout="HideUserMenu"
+        class="btn btn-secondary dropdown-toggle user-button">
+        <i class="oi oi-person"></i>        
+    </button>
+    <div class="dropdown-menu dropdown-menu-end @UserMenuCssClass" >
+            <a href="/register" class="dropdown-item">Register</a> 
+
+            @*TODO: This anchor only works on double click;
+            I think it is due to the onclick event "ToggleUserMenu" of the button tag
+            
+            Look at this later*@
+    </div>
+</div>
+@code {
+    private bool showUserMenu = false;
+
+    private string? UserMenuCssClass => showUserMenu ? "show-menu" : null;
+
+    private void ToggleUserMenu()
+    {
+        showUserMenu = !showUserMenu;
+    }
+
+    private async Task HideUserMenu()
+    {
+        await Task.Delay(200);
+        showUserMenu = false;
+    }
+}
