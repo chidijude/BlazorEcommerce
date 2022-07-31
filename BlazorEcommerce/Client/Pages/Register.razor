@@ -1,4 +1,5 @@
 ﻿@page "/register"
+@inject IAuthService AuthService
 
 <PageTitle>Register</PageTitle>
 
@@ -23,13 +24,28 @@
 
     </div>
     <button type="Submit" class="btn btn-primary">Submit</button>
+    <div class="@mesaageCssClass"> 
+        <span>
+            @mesaage
+        </span>
+    </div>
 </EditForm>
 
 @code {
     UserRegister user = new();
+    string mesaage = string.Empty;
+    string mesaageCssClass = string.Empty;
 
-    void HandleRegistration()
+    async Task HandleRegistration()
     {
-        Console.WriteLine($"Register user with Email: {user.Email}");
+        var result = await AuthService.Register(user);
+        mesaage = result.Message;
+        if (result.Success)
+        {
+            mesaage = result.Message;
+            mesaageCssClass = "text-success";
+        }
+        else
+            mesaageCssClass = "text-danger";
     }
 }

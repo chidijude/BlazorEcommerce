@@ -20,8 +20,8 @@ namespace BlazorEcommerce.Client.Services.ProductService
         }
         public async Task GetProducts(string? categoryUrl = null)
         {
-            var result = categoryUrl == null?
-                await _http.GetFromJsonAsync<ServiceResponse<List<Product>>>("api/product/featured") :
+            var result = categoryUrl == null ?
+                await _http.GetFromJsonAsync<ServiceResponse<List<Product>>>("api/Product/featured") : // Omo using lower case letter makes this call fail. I think it is because the Controller is in uppercase
                 await _http.GetFromJsonAsync<ServiceResponse<List<Product>>>($"api/product/category/{categoryUrl}");
             if (result != null && result.Data != null)
                 Products = result.Data;
