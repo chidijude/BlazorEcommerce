@@ -5,5 +5,7 @@
         Task<ServiceResponse<int>> Register(User user, string password);
         Task<ServiceResponse<string>> Login(string email, string password);
         Task<bool> UserExist(string email);
+        Task<ServiceResponse<bool>> ChangePassword(int userId, string newPassword);
+
     }
 }

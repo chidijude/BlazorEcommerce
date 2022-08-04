@@ -26,23 +26,23 @@
     <button type="Submit" class="btn btn-primary">Submit</button>
     <div class="@mesaageCssClass"> 
         <span>
-            @mesaage
+            @message
         </span>
     </div>
 </EditForm>
 
 @code {
     UserRegister user = new();
-    string mesaage = string.Empty;
+    string message = string.Empty;
     string mesaageCssClass = string.Empty;
 
     async Task HandleRegistration()
     {
         var result = await AuthService.Register(user);
-        mesaage = result.Message;
+        message = result.Message;
         if (result.Success)
         {
-            mesaage = result.Message;
+            message = result.Message;
             mesaageCssClass = "text-success";
         }
         else
