@@ -7,6 +7,7 @@ global using BlazorEcommerce.Client.Services.AuthService;
 global using Microsoft.AspNetCore.Components.Authorization;
 global using BlazorEcommerce.Client.Services.OrderService;
 global using BlazorEcommerce.Client.Services.AddressService;
+global using BlazorEcommerce.Client.Services.ProductTypeService;
 
 using BlazorEcommerce.Client;
 using Microsoft.AspNetCore.Components.Web;
@@ -28,5 +29,7 @@ builder.Services.AddAuthorizationCore();
 builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<IAddressService, AddressService>();
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>();
+builder.Services.AddScoped<IProductTypeService, ProductTypeService>();
+
 
 await builder.Build().RunAsync();

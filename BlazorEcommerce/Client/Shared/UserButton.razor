@@ -4,8 +4,9 @@
 @inject ICartService CartService
 
 <div class="dropdown">
-    <button @onclick="ToggleUserMenu" @onfocusout="HideUserMenu"
-        class="btn btn-secondary dropdown-toggle user-button">
+    <button @onclick="ToggleUserMenu"
+            @onfocusout="HideUserMenu"
+            class="btn btn-secondary dropdown-toggle user-button">
         <i class="oi oi-person"></i>        
     </button>
     <div class="dropdown-menu dropdown-menu-end @UserMenuCssClass" >
@@ -14,6 +15,7 @@
                  <a href="profile" class="dropdown-item">Profile</a>
                  <a href="orders" class="dropdown-item">Orders</a>
                  <hr/>
+                 <AdminMenu/>
                 <button class="dropdown-item" @onclick="Logout">Logout</button>
             </Authorized>
             <NotAuthorized>
